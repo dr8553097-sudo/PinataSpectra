@@ -1,29 +1,39 @@
-﻿# 🍬 07. Ephemeral Candies & Economy Sweeper Service
+# 🍬 07. Ephemeral Candies & Auto-Sweeper
 
-**Ephemeral Candies** are tactical combat consumables that drop during active piñata encounters to empower players.
-
----
-
-## 📜 Candy Rules & Mechanics
-
-1. **Active Event Exclusive Consumption:**
-   * Candies **can ONLY be eaten while an active piñata event is ongoing** on the server.
-   * If a player attempts to consume an event candy after the battle ends, the action is cancelled with a message.
-
-2. **Available Candy Types:**
-   * 🍬 **Sugar Rush Candy:** Grants Speed II and Jump Boost to dodge shockwaves.
-   * 🍫 **Regen Treat:** Rapidly restores health after surviving rage lightning strikes.
-   * 🍭 **Titan Strength Pop:** Enhances damage dealt to the piñata and guardian minions.
+When piñatas are struck or defeated, they drop festive, floating items ("Candies"). In poorly coded plugins, dropping hundreds of physical items leads to severe server tick drops and entity bloat. PinataSpectra solves this with the **Ephemeral Candy Engine**.
 
 ---
 
-## 🧹 The Candy Sweeper Service (`CandySweeperService`)
+## 🛡️ 1. Instant-Pickup Ephemeral Candies
 
-To safeguard the server economy and eliminate candy hoarding or dupe exploits:
-* **Automated Global Purge:** The exact moment a piñata event concludes (upon defeat or timer expiration), the `CandySweeperService` performs an instantaneous sweep across:
-  * All online player main inventories.
-  * All player EnderChests.
-  * All dropped item entities on the ground in all worlds.
+* **Persistent Data Container (PDC) Tags:** Candies are stamped with a proprietary NBT marker (`SpectraCandyUUID`).
+* **Zero Collision Lag:** Candies bypass standard vanilla entity pickup delay (0 tick cooldown), granting immediate rewards upon player proximity.
+* **Anti-Dupe & Inventory Safety:** Handled atomically in memory; items that cannot fit into full player inventories are safely converted into virtual balance or bank credits.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Boss as 🪅 Piñata Boss
+    participant Engine as 🍬 Ephemeral Engine
+    participant Sweeper as 🧹 Scavenger Sweeper Thread
+    actor Player as 🏃 Nearby Player
+
+    Boss->>Engine: Spawn 150 Ephemeral Candy Items
+    Engine->>Player: Instant Proximity Magnet Pickup
+    Note over Sweeper: Monitor remaining items with 30s TTL
+    Sweeper->>Sweeper: Asynchronously Cull Expired Items
+    Note over Sweeper: 0 Zombie Entities Left Behind in World
+```
+
+---
+
+## 🧹 2. Scavenger Garbage Collector
+
+The built-in sweeper thread runs every 10 ticks in the background:
+1. Scans world chunks containing active or recently concluded piñata events.
+2. Identifies all dropped items tagged with `SpectraCandyUUID`.
+3. If an item exceeds its Time-To-Live (default: 30 seconds), it is gracefully despawned with a small poof particle.
+4. Guaranteed zero entity leakage even if the server crashes or chunks are abruptly unloaded.
 
 ---
 

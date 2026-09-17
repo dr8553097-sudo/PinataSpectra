@@ -1,22 +1,46 @@
-﻿# ⏳ 09. Auto-Scheduler & Community Vote Goals
+# ⏳ 09. Auto-Scheduler & Vote Party Engine
 
-Automate recurring community events on your server without requiring staff intervention.
-
----
-
-## ⏰ 1. Timed Auto-Scheduler Engine
-
-The `AutoSchedulerEngine` runs automated spawns at configurable intervals (e.g., every 2 or 4 hours):
-* **Advance Countdown Broadcasts:** Sends warning notifications (15m, 5m, 1m, 30s) across chat and actionbars with arena coordinates.
-* **Multi-Arena Support:** Rotates between registered arena locations across different worlds.
+PinataSpectra Sovereign includes enterprise automation tooling to run scheduled server events and player-driven vote parties automatically.
 
 ---
 
-## 🗳️ 2. Community Vote Goal (Vote Party)
+## ⏰ 1. Quartz-Style Cron Auto-Scheduler
 
-* **NuVotifier Native Integration:** Automatically tracks incoming server votes.
-* **Community BossBar:** Displays a persistent top-of-screen BossBar showing vote progress (e.g., `[████████░░] 80/100 Votes to Piñata Party`).
-* **Party Trigger:** When the goal is met, plays celebratory server-wide sounds and summons a high-tier Piñata Party with bonus loot multipliers.
+Configure recurring automated spawns without requiring external scheduler plugins:
+
+```yaml
+scheduler:
+  enabled: true
+  events:
+    - name: "daily_afternoon_party"
+      cron: "0 0 16 * * ?"      # Every day at 4:00 PM
+      pinata_id: "cosmic_unicorn"
+      location: "spawn, 0.5, 75.0, 0.5, 0.0, 0.0"
+      pre_broadcast_minutes: [15, 5, 1]
+    - name: "weekend_infernal_boss"
+      cron: "0 0 20 ? * SAT,SUN" # Saturdays & Sundays at 8:00 PM
+      pinata_id: "infernal_dragon"
+      location: "arena, 150.5, 64.0, -220.5, 0.0, 0.0"
+      pre_broadcast_minutes: [30, 10, 5, 1]
+```
+
+---
+
+## 🗳️ 2. Vote Party Integration (NuVotifier Hook)
+
+Automatically track player votes across your server network and spawn celebratory piñatas when the milestone is achieved:
+
+```mermaid
+flowchart LR
+    V[Player Votes on Server List] --> N[NuVotifier Listener]
+    N --> M{Vote Counter >= Threshold?}
+    M -->|No| P[Update Actionbar & BossBar Progress]
+    M -->|Yes (e.g. 50/50)| S[🎉 Trigger Piñata Vote Party Event!]
+    S --> R[Reset Counter to 0 & Save to DB]
+```
+
+* **Dynamic BossBar & Actionbar Progress:** Display live progress (e.g., `⚡ Vote Party: 42/50 Votes`).
+* **PlaceholderAPI Support:** Expose `%pinata_voteparty_current%` and `%pinata_voteparty_needed%` on scoreboards.
 
 ---
 

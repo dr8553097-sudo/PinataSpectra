@@ -1,129 +1,379 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PinataSpectra Sovereign — Official Documentation & Wiki</title>
+  <title>PinataSpectra Sovereign — Enterprise Documentation & Wiki</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Official Documentation & Wiki for PinataSpectra Sovereign Edition. The Next-Gen 3D Boss & Multi-Tier Piñata Event Engine for Minecraft Paper/Purpur 1.20 - 1.26+">
+  <meta name="description" content="Next-Gen 3D Boss & Multi-Tier Piñata Event Engine for Minecraft Paper/Purpur 1.20 - 1.26+. Enterprise Documentation Portal.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="../assets/banner.png">
 
-  <!-- Fonts & Stylesheet -->
+  <!-- Google Fonts: Space Grotesk, Plus Jakarta Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Base Theme Stylesheet -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css">
+  
+  <!-- KaTeX for Math Equations -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
 
   <style>
     :root {
-      --theme-color: #a855f7;
-      --theme-color-secondary: #00f0ff;
-      --text-color-base: #e2e8f0;
-      --bg-dark: #090714;
-      --sidebar-bg: #0d0a1c;
-      --code-bg: #130f26;
-      --border-color: rgba(168, 85, 247, 0.2);
+      --bg-canvas: #07050e;
+      --bg-surface: #0e0a1b;
+      --bg-card: rgba(16, 12, 28, 0.82);
+      --bg-card-hover: rgba(26, 19, 44, 0.92);
+      --border-color: rgba(168, 85, 247, 0.22);
+      --border-glow: rgba(0, 240, 255, 0.4);
+      --primary: #a855f7;
+      --primary-bright: #c084fc;
+      --primary-glow: rgba(168, 85, 247, 0.35);
+      --secondary: #00f0ff;
+      --secondary-glow: rgba(0, 240, 255, 0.28);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.25);
+      --amber: #f59e0b;
+      --amber-glow: rgba(245, 158, 11, 0.25);
+      --rose: #f43f5e;
+      --rose-glow: rgba(244, 63, 94, 0.25);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --code-bg: #0c081a;
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-heading: 'Space Grotesk', var(--font-sans);
       --font-mono: 'JetBrains Mono', monospace;
+      
+      /* docsify-tabs vars */
+      --docsifytabs-border-color: var(--border-color);
+      --docsifytabs-tab-background: rgba(14, 10, 27, 0.7);
+      --docsifytabs-tab-background--active: rgba(168, 85, 247, 0.15);
+      --docsifytabs-tab-color: var(--text-muted);
+      --docsifytabs-tab-color--active: var(--secondary);
+      --docsifytabs-tab-highlight-color: var(--secondary);
+      --docsifytabs-tab-padding: 8px 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
     }
 
     body {
-      background-color: var(--bg-dark) !important;
-      color: var(--text-color-base);
+      background-color: var(--bg-canvas) !important;
+      color: var(--text-main);
       font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: 15.5px;
+      line-height: 1.75;
+      background-image: 
+        radial-gradient(circle at 12% 8%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 88% 55%, rgba(0, 240, 255, 0.1) 0%, transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 35%);
+      background-attachment: fixed;
     }
 
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080512;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(168, 85, 247, 0.35);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    /* Scroll Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #a855f7, #00f0ff, #10b981);
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.1s ease;
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.8);
+    }
+
+    /* Top Floating Utility Bar */
+    .top-nav-bar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 310px;
+      height: 52px;
+      background: rgba(11, 8, 22, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 32px;
+      gap: 16px;
+    }
+
+    .top-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none !important;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .top-nav-link:hover {
+      color: #00f0ff !important;
+      background: rgba(0, 240, 255, 0.08);
+      border-color: rgba(0, 240, 255, 0.3);
+    }
+
+    .top-nav-badge-pro {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(0, 240, 255, 0.15));
+      border: 1px solid rgba(168, 85, 247, 0.5);
+      color: #c084fc;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+    }
+
+    @media screen and (max-width: 768px) {
+      .top-nav-bar {
+        left: 0;
+        padding: 0 16px;
+      }
+    }
+
+    /* Sidebar Customization */
     .sidebar {
-      background-color: var(--sidebar-bg) !important;
+      background-color: rgba(11, 8, 22, 0.94) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-right: 1px solid var(--border-color) !important;
+      padding: 24px 18px !important;
+      width: 310px !important;
+    }
+
+    .sidebar-nav {
+      padding-left: 0 !important;
+      padding-bottom: 40px;
+    }
+
+    .sidebar-header {
+      text-align: center;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-header img {
+      max-width: 230px;
+      filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.45));
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-header img:hover {
+      transform: scale(1.03);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #c084fc;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-top: 10px;
+      letter-spacing: 0.6px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
     }
 
     .sidebar-nav ul li a {
-      color: #94a3b8 !important;
+      color: var(--text-muted) !important;
       font-size: 14px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: all 0.2s ease;
+      font-weight: 500;
+      padding: 7px 14px !important;
+      border-radius: 8px;
+      margin: 2px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .sidebar-nav ul li.active > a, .sidebar-nav ul li a:hover {
       color: #00f0ff !important;
-      background: rgba(0, 240, 255, 0.08) !important;
-      font-weight: 600;
+      background: rgba(0, 240, 255, 0.1) !important;
+      font-weight: 700;
+      transform: translateX(4px);
+      box-shadow: inset 3px 0 0 0 #00f0ff;
     }
 
-    .app-name-link {
-      font-family: var(--font-heading) !important;
-      font-size: 1.25rem !important;
-      font-weight: 700 !important;
-      color: #fff !important;
-      text-shadow: 0 0 16px rgba(168, 85, 247, 0.6);
+    .sidebar-nav > ul > li > p {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--primary-bright);
+      margin-top: 20px;
+      margin-bottom: 6px;
+      padding-left: 12px;
+      font-weight: 700;
     }
 
-    h1, h2, h3, h4 {
+    /* Content Area */
+    .content {
+      padding-top: 60px !important;
+      left: 310px !important;
+    }
+
+    .markdown-section {
+      max-width: 980px !important;
+      padding: 30px 48px 90px 48px !important;
+    }
+
+    h1, h2, h3, h4, h5 {
       font-family: var(--font-heading) !important;
-      color: #f8fafc !important;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
       font-weight: 700;
     }
 
     h1 {
+      font-size: 2.35rem !important;
       border-bottom: 1px solid var(--border-color) !important;
-      padding-bottom: 12px;
-      margin-top: 10px;
+      padding-bottom: 14px;
+      margin-top: 15px;
+      background: linear-gradient(135deg, #ffffff 40%, var(--primary-bright) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    pre, code {
-      font-family: var(--font-mono) !important;
+    h2 {
+      font-size: 1.65rem !important;
+      margin-top: 42px !important;
+      border-bottom: 1px dashed rgba(168, 85, 247, 0.25);
+      padding-bottom: 8px;
     }
 
+    h3 {
+      font-size: 1.25rem !important;
+      color: #e0e7ff !important;
+      margin-top: 28px !important;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.4), transparent);
+      margin: 32px 0;
+    }
+
+    /* Code Blocks */
     pre {
       background: var(--code-bg) !important;
       border: 1px solid var(--border-color) !important;
-      border-radius: 10px !important;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.35) !important;
+      border-radius: 12px !important;
+      padding: 18px 22px !important;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5) !important;
+      position: relative;
+    }
+
+    pre code {
+      font-family: var(--font-mono) !important;
+      font-size: 13.8px !important;
+      line-height: 1.68 !important;
     }
 
     :not(pre) > code {
-      background: rgba(168, 85, 247, 0.15) !important;
+      background: rgba(168, 85, 247, 0.16) !important;
       color: #c084fc !important;
-      padding: 2px 7px !important;
-      border-radius: 5px !important;
-      border: 1px solid rgba(168, 85, 247, 0.3) !important;
+      padding: 2.5px 8px !important;
+      border-radius: 6px !important;
+      border: 1px solid rgba(168, 85, 247, 0.35) !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.9em !important;
     }
 
+    /* Enhanced Custom Alert Callouts */
     blockquote {
-      background: rgba(168, 85, 247, 0.08) !important;
-      border-left: 4px solid var(--theme-color) !important;
-      border-radius: 0 8px 8px 0;
-      color: #cbd5e1 !important;
-      padding: 14px 20px !important;
-      margin: 20px 0 !important;
+      background: rgba(18, 14, 32, 0.78) !important;
+      backdrop-filter: blur(12px);
+      border-left: 4px solid var(--primary) !important;
+      border-radius: 0 12px 12px 0;
+      color: #e2e8f0 !important;
+      padding: 16px 22px !important;
+      margin: 24px 0 !important;
+      border-top: 1px solid rgba(168, 85, 247, 0.15);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+      border-right: 1px solid rgba(168, 85, 247, 0.15);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
 
+    /* Tables */
     table {
       border-collapse: collapse;
       width: 100%;
-      margin: 20px 0;
-      border-radius: 8px;
+      margin: 26px 0;
+      border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--border-color);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+      background: rgba(14, 10, 26, 0.65);
     }
 
     th {
-      background: rgba(168, 85, 247, 0.25) !important;
-      color: #fff !important;
-      padding: 12px 14px;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(0, 240, 255, 0.15)) !important;
+      color: #ffffff !important;
+      padding: 14px 18px;
       font-weight: 700;
       text-align: left;
+      font-family: var(--font-heading);
+      letter-spacing: 0.3px;
     }
 
     td {
-      padding: 11px 14px;
-      border-top: 1px solid var(--border-color);
+      padding: 12px 18px;
+      border-top: 1px solid rgba(168, 85, 247, 0.15);
       color: #cbd5e1;
     }
 
@@ -131,73 +381,127 @@
       background: rgba(255, 255, 255, 0.02);
     }
 
-    a {
-      color: #00f0ff !important;
-      text-decoration: none !important;
-      transition: color 0.2s ease;
+    tr:hover {
+      background: rgba(168, 85, 247, 0.06);
     }
 
-    a:hover {
-      color: #a855f7 !important;
-      text-decoration: underline !important;
+    /* Search Bar */
+    .search {
+      padding: 0 0 16px 0 !important;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
     }
 
     .search input {
-      background: #15102a !important;
+      background: #140e28 !important;
       border: 1px solid var(--border-color) !important;
-      color: #fff !important;
-      border-radius: 8px !important;
+      color: #ffffff !important;
+      border-radius: 10px !important;
+      padding: 10px 16px !important;
+      font-family: var(--font-sans) !important;
+      font-size: 13.5px !important;
+      transition: all 0.3s ease;
     }
 
+    .search input:focus {
+      border-color: var(--secondary) !important;
+      box-shadow: 0 0 14px var(--secondary-glow) !important;
+    }
+
+    /* Pagination Footer Buttons */
     .pagination-item {
-      margin-top: 30px !important;
+      margin-top: 45px !important;
       border: 1px solid var(--border-color) !important;
-      background: rgba(18, 14, 32, 0.8) !important;
-      border-radius: 10px !important;
-      padding: 12px 20px !important;
-      transition: all 0.2s ease !important;
+      background: rgba(18, 13, 34, 0.9) !important;
+      backdrop-filter: blur(12px);
+      border-radius: 14px !important;
+      padding: 16px 24px !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
     }
 
     .pagination-item:hover {
-      border-color: var(--theme-color-secondary) !important;
-      box-shadow: 0 0 16px rgba(0, 240, 255, 0.2) !important;
+      border-color: var(--secondary) !important;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 240, 255, 0.25) !important;
     }
 
     .pagination-item-title {
       color: #00f0ff !important;
       font-weight: 700 !important;
+      font-size: 1.05rem !important;
       font-family: var(--font-heading) !important;
     }
 
-    .badge-premium {
-      background: linear-gradient(135deg, #a855f7, #ec4899);
-      color: #fff;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      display: inline-block;
-      margin-bottom: 8px;
+    .pagination-item-label {
+      color: var(--text-muted) !important;
+      font-size: 0.8rem !important;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Copy button */
+    .docsify-copy-code-button {
+      background: rgba(168, 85, 247, 0.25) !important;
+      color: #ffffff !important;
+      border-radius: 6px !important;
+      font-family: var(--font-mono) !important;
+      font-size: 12px !important;
+      padding: 4px 10px !important;
+      border: 1px solid rgba(168, 85, 247, 0.4) !important;
+      transition: all 0.2s ease;
+    }
+
+    .docsify-copy-code-button:hover {
+      background: var(--primary) !important;
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    /* Mermaid Containers */
+    .mermaid {
+      background: rgba(12, 8, 26, 0.85) !important;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div id="app">Loading PinataSpectra Sovereign Documentation...</div>
+  <div id="progress-bar"></div>
+  
+  <!-- Top Nav Bar -->
+  <div class="top-nav-bar">
+    <span class="top-nav-badge-pro">👑 v1.0.0-RELEASE</span>
+    <a href="https://github.com/dr8553097-sudo/PinataSpectra" target="_blank" class="top-nav-link">⭐ GitHub</a>
+    <a href="#/13-Comparison-and-Editions" class="top-nav-link">⚡ Lite vs Sovereign</a>
+    <a href="mailto:dr8553097@gmail.com" class="top-nav-link">💬 Support</a>
+  </div>
+
+  <div id="app">Loading PinataSpectra Sovereign Enterprise Wiki...</div>
 
   <script>
     window.$docsify = {
-      name: '🪅 PinataSpectra Sovereign',
+      name: '<div class="sidebar-header"><img src="../assets/banner.png" alt="PinataSpectra Logo"><br><div class="status-badge"><span class="status-dot"></span> SOVEREIGN EDITION</div></div>',
       repo: 'https://github.com/dr8553097-sudo/PinataSpectra',
       homepage: 'Home.md',
       loadSidebar: '_Sidebar.md',
       subMaxLevel: 3,
       auto2top: true,
+      tabs: {
+        persist: true,
+        sync: true,
+        theme: 'classic',
+        tabComments: true,
+        tabHeadings: true
+      },
       search: {
         maxAge: 86400000,
         paths: 'auto',
-        placeholder: '🔍 Search documentation...',
-        noData: '❌ No results found',
+        placeholder: '🔍 Search Wiki & Guides...',
+        noData: '❌ No matching modules found',
         depth: 4
       },
       copyCode: {
@@ -210,18 +514,59 @@
         nextText: 'Next Module →',
         crossChapter: true,
         crossChapterText: true
-      }
+      },
+      plugins: [
+        function (hook, vm) {
+          hook.ready(function () {
+            window.addEventListener('scroll', function () {
+              var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+              var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+              var scrolled = (winScroll / height) * 100;
+              var bar = document.getElementById('progress-bar');
+              if (bar) bar.style.width = scrolled + '%';
+            });
+          });
+        }
+      ]
     };
   </script>
 
+  <!-- Docsify Core & Search -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
   
+  <!-- Math Formula Renderer (KaTeX) -->
+  <script src="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+
+  <!-- Mermaid Diagrams -->
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="//unpkg.com/docsify-mermaid@latest/dist/docsify-mermaid.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: '#0c081a',
+        primaryColor: '#a855f7',
+        primaryTextColor: '#ffffff',
+        primaryBorderColor: '#a855f7',
+        lineColor: '#00f0ff',
+        secondaryColor: '#00f0ff',
+        tertiaryColor: '#10b981'
+      }
+    });
+  </script>
+
+  <!-- Prism Syntax Highlighters -->
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
 </body>
 </html>

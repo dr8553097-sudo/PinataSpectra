@@ -1,47 +1,39 @@
-﻿# 🔮 06. Particle Engine, LOD Limits & Compatible Effects
+# 🔮 06. Particle LOD & Runic Circles
 
-PinataSpectra features a high-performance visual particle subsystem designed to maintain 60+ FPS on clients during intense 80+ player boss fights.
-
----
-
-## ⚡ 1. Particle Engine Limits & Capacity
-
-| Capacity Metric | Threshold Limit | Behavior Under Load |
-|---|---|---|
-| **Max Concurrent Particles** | 120 per server tick | Culls low-priority decorative sparks automatically |
-| **Max Distance Radius** | 48.0 blocks | Entities beyond 48 blocks receive 0 particle packets |
-| **Hit Popup Lifetime** | 20 ticks (1.0 second) | Smooth upward vertical interpolation |
-| **Runic Circle Points** | 36 angular vertices | Dynamic step resolution (10° per vertex) |
-| **Rope Vertex Density** | 1 particle per 0.4 blocks | Catenary spline calculation |
+PinataSpectra features a mathematical particle animation engine capable of generating complex geometric circles, spiraling vortices, and runic glyphs while safeguarding server and client performance through dynamic **Level of Detail (LOD)** algorithms.
 
 ---
 
-## 🎨 2. Supported Minecraft Particle Types
+## 📐 1. Parametric Geometry Formulas
 
-The runic circle and phase aura engines natively support all Spigot/Paper particle enums:
+Visual effects in PinataSpectra are rendered via parametric mathematical equations computed asynchronously:
 
-```yaml
-# Recommended High-Visibility Particles:
-- PORTAL           # Mystical purple/magenta vortex particles
-- ENCHANT          # Floating galactic glyph runes
-- SOUL_FIRE_FLAME  # Electric cyan flames (ideal for Phase 2 Shields)
-- FLAME            # Warm orange embers (ideal for Phase 3 Rage)
-- DRAGON_BREATH    # Volumetric purple boss clouds
-- END_ROD          # Clean white sparkle highlights
-- GLOW             # Bright glowing luminescent dust
-- HEART            # Festive celebration hearts
-- NOTE             # Musical score notes
-- TOTEM_OF_UNDYING # Golden celebratory climax sparks
+### Archimedean Spell Spiral
+$$r(\theta) = a + b\theta, \quad x = r\cos\theta, \quad z = r\sin\theta, \quad y = y_0 + c\theta$$
+
+### Multi-Petal Runic Hypocycloid
+$$x(t) = (R - r)\cos(t) + d\cos\left(\frac{R - r}{r} t\right)$$
+$$z(t) = (R - r)\sin(t) - d\sin\left(\frac{R - r}{r} t\right)$$
+
+```mermaid
+graph TD
+    A[Async Math Solver] -->|Computes Parametric Coordinates| B[Particle Density Filter]
+    B -->|LOD Distance Scaling| C[Client Viewport Packet Broadcast]
+    C -->|Zero Client FPS Lag| D[Smooth Visual Showcase]
 ```
 
 ---
 
-## 🔮 3. Performance Tuning Guide for 80+ Player Servers
+## 👁️ 2. Dynamic LOD (Level of Detail) Scaling
 
-If hosting massive community festivals with 80+ concurrent attackers:
-1. **Set `particle-lod.close-distance: 6.0`** to concentrate particle density strictly around immediate melee attackers.
-2. **Enable `particle-lod.enabled: true`** in `config.yml`.
-3. **Use `PORTAL` or `ENCHANT`** for runic circles as they generate clean single-particle packets with low GPU rasterization overhead.
+To ensure players on lower-end PCs or mobile (via GeyserMC) maintain 60+ FPS, particle density is scaled dynamically based on player distance $d$:
+
+$$\text{Density}(d) = \text{BaseDensity} \cdot \max\left(0.15, 1.0 - \frac{d}{R_{\text{cull}}}\right)$$
+
+* **Close Range ($0 \le d \le 8$m):** 100% full resolution runic circles and continuous rope catenary particles.
+* **Medium Range ($8 < d \le 24$m):** 50% particle decimation; retains primary structural shapes.
+* **Far Range ($24 < d \le 48$m):** 20% particle decimation; basic aura indicator.
+* **Beyond Cull Radius ($d > 48$m):** 0% packets sent (Zero network/client overhead).
 
 ---
 

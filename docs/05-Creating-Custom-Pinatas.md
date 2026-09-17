@@ -1,76 +1,99 @@
-﻿# 🛠️ 05. Step-by-Step Guide: Creating Custom Piñatas
+# 🛠️ 05. Creating Custom Piñatas
 
-Creating custom piñatas with unique 3D models, health bars, phase transitions, and loot tables is 100% configurable in `pinatas.yml`.
+PinataSpectra Sovereign features a modular YAML-based configuration architecture that allows server creators to design unique piñata bosses with custom 3D model data, drop tables, sound sets, and particle themes.
 
 ---
 
-## 📝 Complete Example: `celestial_unicorn`
+## 📁 File Structure
 
-Add the following block to `/plugins/PinataSpectra/pinatas.yml`:
+Custom piñata configurations are placed in the `/plugins/PinataSpectra/pinatas/` folder. Every file represents an independent boss tier.
 
+<!-- tabs:start -->
+
+#### **Infernal Dragon (`infernal_dragon.yml`)**
 ```yaml
-pinatas:
-  celestial_unicorn:
-    display-name: "<gradient:#00f0ff:#a855f7><bold>🦄 CELESTIAL UNICORN PIÑATA</bold></gradient>"
-    shape: "UNICORN"              # DONKEY, LLAMA, UNICORN, STAR, CUSTOM
-    animation-style: "SINUSOIDAL" # SINUSOIDAL, CIRCULAR, CHAOTIC, BOUNCY
-    base-health: 2000.0           # Total hitpoints
-    hitbox-size: 2.0              # Interaction radius in blocks
-    
-    # 3D Model Properties
-    model:
-      material: "PLAYER_HEAD"
-      custom-model-data: 0        # Optional (for custom resource pack models)
-      head-texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTRmMGNmNzA4MGY2ZDFkYTUxMDYzOWU5MjU5Zjg3M2M1OTk5ZTRmYTRjNjQ2ZDAwNzM5ODZlYjExNTM5MmY5YSJ9fX0="
-      scale:
-        x: 2.5
-        y: 2.5
-        z: 2.5
-        
-    # Dynamic Emotion Textures
-    emotions:
-      calm:
-        texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTRmMGNmNzA4MGY2ZDFkYTUxMDYzOWU5MjU5Zjg3M2M1OTk5ZTRmYTRjNjQ2ZDAwNzM5ODZlYjExNTM5MmY5YSJ9fX0="
-      angry:
-        texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWQ3OTExY2M1ZWY5M2RlMTg2YmNjNDYxYTk2YWRhMTRhYzg1ZTIwMjI0MmYxNTc5NWE2OTlmM2Q0NTllNDM3YSJ9fX0="
-        
-    # Phase Combat Mechanics
-    phases:
-      phase_2:
-        shield-health: 400.0
-        minions-count: 5
-        minion-type: "mini_unicorn"
-      phase_3:
-        knockback-power: 2.2
-        lightning-strike: true
-        
-    # Rewards
-    loot-table: "celestial_drops"
-    candy-drop-count: 16
+id: "infernal_dragon"
+display_name: "<gradient:#ff0055:#ffaa00><b>INFERNAL DRAGON PIÑATA</b></gradient>"
+total_health: 500
+damage_cap_per_hit: 5
+hit_cooldown_ticks: 8
+
+model:
+  material: "STICK"
+  custom_model_data: 10401
+  scale: [2.2, 2.2, 2.2]
+  billboard: "CENTER"
+
+sound_profile:
+  hit: "ENTITY_ENDER_DRAGON_HURT"
+  shield_up: "BLOCK_BEACON_ACTIVATE"
+  shield_break: "BLOCK_GLASS_BREAK"
+  death: "ENTITY_ENDER_DRAGON_DEATH"
+
+combat_phases:
+  phase_2_minions:
+    count: 4
+    minion_health: 30
+    minion_model_data: 10402
+  phase_3_shockwave:
+    interval_ticks: 100
+    knockback_force: 2.5
+    particle: "FLAME"
+
+rewards:
+  top_damager_commands:
+    1:
+      - "eco give %player% 50000"
+      - "crate givekey %player% mythical 3"
+      - "broadcast &6%player% achieved #1 MVP on Infernal Dragon!"
+    2:
+      - "eco give %player% 25000"
+      - "crate givekey %player% mythical 1"
+    3:
+      - "eco give %player% 10000"
+  per_hit_rewards:
+    chance_percent: 45
+    commands:
+      - "eco give %player% 250"
 ```
 
----
+#### **Cosmic Unicorn (`cosmic_unicorn.yml`)**
+```yaml
+id: "cosmic_unicorn"
+display_name: "<gradient:#a855f7:#00f0ff><b>COSMIC UNICORN PIÑATA</b></gradient>"
+total_health: 350
+damage_cap_per_hit: 4
+hit_cooldown_ticks: 10
 
-## 🔍 Key Configuration Options
+model:
+  material: "FEATHER"
+  custom_model_data: 20101
+  scale: [1.8, 1.8, 1.8]
+  billboard: "VERTICAL"
 
-1. **`shape`:** Core model archetype (`DONKEY`, `LLAMA`, `UNICORN`, `STAR`, `CUSTOM`).
-2. **`animation-style`:**
-   * `SINUSOIDAL`: Smooth realistic pendulum sway.
-   * `CIRCULAR`: Orbital rotational path with vertical bobbing.
-   * `BOUNCY`: Elastic vertical spring bounce.
-   * `CHAOTIC`: High-energy unpredictable frenzy movements.
-3. **`base-health`:** Total damage required to defeat the piñata. Multiplied by tier settings (`tier_1`, `tier_2`, `tier_3`).
-4. **`head-texture`:** Standard Base64 player head skin value, allowing infinite 3D designs without requiring client mods.
+sound_profile:
+  hit: "ENTITY_ALLAY_HURT"
+  shield_up: "BLOCK_AMETHYST_BLOCK_CHIME"
+  shield_break: "BLOCK_AMETHYST_CLUSTER_BREAK"
+  death: "UI_TOAST_CHALLENGE_COMPLETE"
 
----
+combat_phases:
+  phase_2_minions:
+    count: 3
+    minion_health: 20
+    minion_model_data: 20102
+  phase_3_shockwave:
+    interval_ticks: 120
+    knockback_force: 1.8
+    particle: "END_ROD"
 
-## 🎮 In-Game Testing
-
-Reload the plugin and spawn your custom piñata:
-```bash
-/pinata reload
-/pinata spawn celestial_unicorn tier_1
+rewards:
+  top_damager_commands:
+    1:
+      - "eco give %player% 30000"
+      - "crate givekey %player% cosmic 2"
 ```
+<!-- tabs:end -->
 
 ---
 

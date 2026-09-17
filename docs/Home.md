@@ -1,58 +1,74 @@
-﻿# 🪅 PinataSpectra Sovereign Edition — Official Documentation
-
-<div align="center">
-  <span class="badge-premium">★ SOVEREIGN COMMERCIAL EDITION ★</span>
-</div>
+# 🪅 PinataSpectra Sovereign Edition — Enterprise Portal
 
 > [!IMPORTANT]
-> **This documentation is strictly for PinataSpectra — Sovereign Edition (Commercial / Premium Release).**
-> 
-> * **PinataSpectra Lite (Free Version):** A basic demonstration version with limited single-phase mechanics is maintained in a separate repository with its own dedicated lightweight documentation. The Lite edition does NOT include multi-tier combat phases, particle LOD, ephemeral candy sweeps, auto-schedulers, or 54-slot async GUI leaderboards.
-> * **Sovereign Edition (This Plugin):** Contains the complete enterprise suite designed for large communities (80+ concurrent players) with zero tick overhead.
+> **COMMERCIAL ENTERPRISE EDITION**  
+> This documentation portal covers **PinataSpectra Sovereign Pro (Commercial Edition)**.  
+> If you are looking for the stripped-down, open-source community release, please refer to the **PinataSpectra Lite Wiki** hosted on its dedicated repository. Lite contains basic single-entity spawning without the advanced physics engine, boss state machine, or LOD particle systems.
 
 ---
 
-## 🌟 Sovereign Edition vs Lite vs Generic Pinata Plugins
+## 🌌 The Next-Gen 3D Boss & Event Experience
 
-| Feature / Architecture | 🪅 PinataSpectra Sovereign (This Version) | 🍃 PinataSpectra Lite (Free) | 📦 Generic / Legacy Pinata Plugins |
-|---|:---:|:---:|:---:|
-| **Entity Technology** | Native `ItemDisplay` & `Interaction` | Native `ItemDisplay` | Obsolete Invisible ArmorStands (High Packets) |
-| **80+ Players Concurrent Performance** | **20.0 TPS Stable** (Particle LOD) | 20.0 TPS (Basic) | Client FPS Drops & Server Stutters |
-| **Physics Engine** | 3D Catenary Rope & Harmonic Recoil | Static Floating | Static or Basic ArmorStand Leash |
-| **Combat Mechanics** | **4 Dynamic Phases** (Shields & Minions) | Single Health Bar | Single Health Bar |
-| **Emotion Morphing** | 4 Dynamic Facial State Morphs | Static Texture | None |
-| **Arena Runes** | Animated Ground Runic Perimeter Circle | None | None |
-| **Combat Candies** | Ephemeral Candies + **Auto-Sweeper Purge** | None | Permanent Candies (Dupe/Economy Risk) |
-| **Leaderboard System** | **54-Slot Async GUI** + Multi-Category DB | Chat Text Only | None or Basic Flatfile |
-| **Automation** | **Auto-Scheduler Engine** with Alerts | None | Manual Commands Only |
-| **Vote Goal / BossBar** | Community BossBar + NuVotifier Goal | None | None |
-| **Custom Model Engine / Oraxen** | Native Hook Support | None | None |
-| **Database Storage** | SQLite / MySQL / Redis Pool (HikariCP) | Local Flatfile | YAML Flatfile Only |
+**PinataSpectra Sovereign** is the definitive enterprise Minecraft server event suite. Engineered from the ground up for modern Paper, Purpur, and Folia 1.20 - 1.26+ servers, it redefines in-game community events with authentic **real-time harmonic rope physics**, **4-phase dynamic boss mechanics**, **adaptive particle LOD algorithms**, and **zero-tick memory-safe garbage collection**.
+
+```mermaid
+graph LR
+    A[📅 Auto-Scheduler / Vote Party] -->|Triggers Event| B[🪅 3D Display Entity Spawned]
+    B -->|Harmonic Rope Physics| C[⚔️ 4-Phase Boss Encounter]
+    C -->|Real-time Tracking| D[📊 Asynchronous Leaderboards]
+    C -->|Phase 4 Detonation| E[🍬 Ephemeral Candies & Custom Loot]
+    E -->|Auto-Sweeper Engine| F[🧹 0-Leak Memory Clean]
+```
 
 ---
 
-## 🧭 Documentation Index
+## ⚡ Key Highlights at a Glance
 
-Explore the modules in sequence:
+<div class="feature-grid">
+  <div class="feature-card">
+    <h4>🦄 3D Display Entity Kinematics</h4>
+    <p>Zero armor stand lag. Utilizes modern <code>ItemDisplay</code> transformations with realistic catenary rope physics, torque recoil, and dynamic facial emotions.</p>
+  </div>
+  <div class="feature-card">
+    <h4>🛡️ Multi-Phase Combat Engine</h4>
+    <p>Deterministic 4-phase state machine featuring orbital invulnerability shields, guardian minion swarms, and enraged shockwaves.</p>
+  </div>
+  <div class="feature-card">
+    <h4>🔮 Adaptive Particle LOD</h4>
+    <p>Procedural runic circles and spell spirals that dynamically throttle particle density based on player distance and server TPS.</p>
+  </div>
+  <div class="feature-card">
+    <h4>🍬 Ephemeral Candy Sweeper</h4>
+    <p>Instant-pickup event rewards backed by an asynchronous garbage collector preventing chunk bloat and entity count spikes.</p>
+  </div>
+</div>
 
-1. 🏛️ [**01. Architecture & Performance**](01-Architecture-and-Performance.md) — Asynchronous database engine, thread-safety, and 20.0 TPS guarantees.
-2. ⚙️ [**02. Installation & Setup**](02-Installation-and-Setup.md) — Paper/Purpur 1.20 - 1.26+ requirements, Java 21/25, and optional hooks.
-3. 🦄 [**03. 3D Display Entities & Physics**](03-3D-Display-Entities-and-Physics.md) — Real-time suspension, angular impulse, and facial emotion morphing.
-4. ⚔️ [**04. Combat Phases & Boss Mechanics**](04-Combat-Phases-and-Boss-Mechanics.md) — Deep dive into the 4-phase combat state machine.
-5. 🛠️ [**05. Creating Custom Piñatas**](05-Creating-Custom-Pinatas.md) — **Complete step-by-step tutorial** on crafting custom piñatas from scratch.
-6. 🔮 [**06. Particle LOD & Runic Circles**](06-Particle-LOD-and-Runic-Circles.md) — Multi-tier distance optimization and animated floor perimeters.
-7. 🍬 [**07. Ephemeral Candies & Sweeper**](07-Ephemeral-Candies-and-Sweeper.md) — Active event consumption rules and automatic economy purges.
-8. 🏆 [**08. Leaderboards GUI & Stats**](08-Leaderboards-GUI-and-Stats.md) — 54-slot interactive menu (`/pinata top`) with SQLite/MySQL.
-9. ⏳ [**09. Auto-Scheduler & Vote Party**](09-Auto-Scheduler-and-Vote-Party.md) — Timed recurring spawns and community vote goal BossBar.
-10. 📜 [**10. Master Configuration Reference**](10-Master-Configuration-Reference.md) — Exhaustive line-by-line configuration guide.
-11. 🧩 [**11. Commands & Placeholders**](11-Commands-Permissions-and-Placeholders.md) — Complete command, permission, and PlaceholderAPI reference.
-12. 💻 [**12. Developer API & Best Practices**](12-Developer-API-and-Events.md) — Java API, Bukkit events, and enterprise security warnings.
-13. ⚖️ [**13. Detailed Edition Comparison**](13-Comparison-and-Editions.md) — Full comparison matrix and feature breakdown.
+---
+
+## 📖 Navigation Map
+
+| Module | Topic | Description |
+| :--- | :--- | :--- |
+| **[01. Architecture & Performance](01-Architecture-and-Performance.md)** | Core Internals | Async threading model, zero-allocation memory pools, packet batching. |
+| **[02. Installation & Setup](02-Installation-and-Setup.md)** | Server Setup | Paper/Purpur/Folia deployment, soft dependencies, initial boot. |
+| **[03. 3D Display & Physics](03-3D-Display-Entities-and-Physics.md)** | Physics Engine | Damped harmonic oscillation, catenary equations, facial emotion states. |
+| **[04. Combat Phases](04-Combat-Phases-and-Boss-Mechanics.md)** | Boss Mechanics | 4-stage combat state machine, minion waves, shockwave physics. |
+| **[05. Custom Piñatas](05-Creating-Custom-Pinatas.md)** | YAML Creator | Designing custom tiers, model data, drop tables, sound profiles. |
+| **[06. Particle LOD](06-Particle-LOD-and-Runic-Circles.md)** | Visual FX | Parametric geometry, client distance scaling, TPS guardrails. |
+| **[07. Candies & Sweeper](07-Ephemeral-Candies-and-Sweeper.md)** | Loot & Memory | Ephemeral PDC items, sweep thread, anti-lag despawn engine. |
+| **[08. Leaderboards & Stats](08-Leaderboards-GUI-and-Stats.md)** | Data & GUIs | Damage distribution, async SQLite/MySQL schema, paginated chest UI. |
+| **[09. Auto-Scheduler](09-Auto-Scheduler-and-Vote-Party.md)** | Automation | Cron expressions, Votifier listener, automated broadcast timers. |
+| **[10. Master Config](10-Master-Configuration-Reference.md)** | Configuration | Exhaustive, line-by-line annotated `config.yml` reference. |
+| **[11. Commands & Placeholders](11-Commands-Permissions-and-Placeholders.md)** | Admin Tools | Complete command syntax, permission trees, PlaceholderAPI list. |
+| **[12. Developer API](12-Developer-API-and-Events.md)** | Java API | Custom Bukkit events, Maven repository, plugin integration hooks. |
+| **[13. Comparison & Editions](13-Comparison-and-Editions.md)** | Edition Matrix | In-depth matrix comparing Sovereign Pro vs Lite vs Legacy Plugins. |
+| **[14. FAQ & Troubleshooting](14-FAQ-and-Troubleshooting.md)** | Diagnostics | Error codes, chunk recovery, performance optimization guide. |
+| **[15. Benchmark & Scaling](15-Benchmark-and-Stress-Testing.md)** | Performance Tests | Spark profiling data, 100+ player concurrency benchmarks. |
 
 ---
 
 <div align="right">
 
-[**01. Architecture & Performance →**](01-Architecture-and-Performance.md)
+[**Next: 01. Architecture & Performance →**](01-Architecture-and-Performance.md)
 
 </div>

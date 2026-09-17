@@ -1,4 +1,4 @@
-﻿### 🪅 PinataSpectra Sovereign
+### 🪅 PinataSpectra Sovereign
 - 🏠 [Home / Overview](Home.md)
 - ⚖️ [Edition Comparison (Lite vs Pro)](13-Comparison-and-Editions.md)
 
@@ -16,9 +16,11 @@
 - 📜 [10. Master Configuration Reference](10-Master-Configuration-Reference.md)
 - 🧩 [11. Commands & Placeholders](11-Commands-Permissions-and-Placeholders.md)
 - 💻 [12. Developer API & Best Practices](12-Developer-API-and-Events.md)
+- ❓ [14. FAQ & Troubleshooting](14-FAQ-and-Troubleshooting.md)
+- 🚀 [15. Benchmark & Concurrency](15-Benchmark-and-Stress-Testing.md)
 
 ---
 ### 🔗 External Links
 - [🌐 Developer Portfolio](https://dr8553097-sudo.github.io)
 - [📦 GitHub Repository](https://github.com/dr8553097-sudo/PinataSpectra)
-- [🧡 SpigotMC Profile](https://www.spigotmc.org/members/dafealru.1/)
+- [📧 Direct Email Support](mailto:dr8553097@gmail.com)

@@ -1,24 +1,47 @@
-﻿# 🔮 06. Particle LOD & Runic Ground Circles
+﻿# 🔮 06. Particle Engine, LOD Limits & Compatible Effects
 
-When 50 to 80+ players gather in an arena to attack a piñata simultaneously, spawning hundreds of individual particles every tick can cause client-side FPS drops on lower-end systems. PinataSpectra features an intelligent **Level of Detail (LOD)** engine.
-
----
-
-## ⚡ 1. How Particle LOD Operates
-
-The engine computes player density and distance vectors:
-* **Close Tier (< 8 blocks):** Full fidelity particle rendering (hit impacts, critical sparks, damage popups, and suspension rope).
-* **Medium Tier (8 - 24 blocks):** 50% particle frequency reduction and secondary cosmetic particle culling.
-* **Far Tier (> 24 blocks):** Displays only major boss boundary outlines and phase transition explosions.
+PinataSpectra features a high-performance visual particle subsystem designed to maintain 60+ FPS on clients during intense 80+ player boss fights.
 
 ---
 
-## 🔮 2. Animated Runic Ground Circles
+## ⚡ 1. Particle Engine Limits & Capacity
 
-Beneath every suspended piñata, an animated runic circle projects directly onto the arena floor:
-* **Perimeter Boundary:** Clearly demarcates the active combat hazard zone for players.
-* **Continuous Rotation:** The circle smoothly rotates around the Y-axis using portal and enchantment particles.
-* **Topographical Adaptation:** The ground detector calculates raycasts to project cleanly across stairs, slabs, and uneven terrain without floating artifacts.
+| Capacity Metric | Threshold Limit | Behavior Under Load |
+|---|---|---|
+| **Max Concurrent Particles** | 120 per server tick | Culls low-priority decorative sparks automatically |
+| **Max Distance Radius** | 48.0 blocks | Entities beyond 48 blocks receive 0 particle packets |
+| **Hit Popup Lifetime** | 20 ticks (1.0 second) | Smooth upward vertical interpolation |
+| **Runic Circle Points** | 36 angular vertices | Dynamic step resolution (10° per vertex) |
+| **Rope Vertex Density** | 1 particle per 0.4 blocks | Catenary spline calculation |
+
+---
+
+## 🎨 2. Supported Minecraft Particle Types
+
+The runic circle and phase aura engines natively support all Spigot/Paper particle enums:
+
+```yaml
+# Recommended High-Visibility Particles:
+- PORTAL           # Mystical purple/magenta vortex particles
+- ENCHANT          # Floating galactic glyph runes
+- SOUL_FIRE_FLAME  # Electric cyan flames (ideal for Phase 2 Shields)
+- FLAME            # Warm orange embers (ideal for Phase 3 Rage)
+- DRAGON_BREATH    # Volumetric purple boss clouds
+- END_ROD          # Clean white sparkle highlights
+- GLOW             # Bright glowing luminescent dust
+- HEART            # Festive celebration hearts
+- NOTE             # Musical score notes
+- TOTEM_OF_UNDYING # Golden celebratory climax sparks
+```
+
+---
+
+## 🔮 3. Performance Tuning Guide for 80+ Player Servers
+
+If hosting massive community festivals with 80+ concurrent attackers:
+1. **Set `particle-lod.close-distance: 6.0`** to concentrate particle density strictly around immediate melee attackers.
+2. **Enable `particle-lod.enabled: true`** in `config.yml`.
+3. **Use `PORTAL` or `ENCHANT`** for runic circles as they generate clean single-particle packets with low GPU rasterization overhead.
 
 ---
 

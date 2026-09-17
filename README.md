@@ -1,8 +1,14 @@
 ﻿<p align="center">
-  <img src="assets/banner.png" alt="PinataSpectra Banner" width="100%" style="max-width: 850px;">
+  <img src="assets/banner.png" alt="PinataSpectra Sovereign Banner" width="100%" style="max-width: 850px;">
 </p>
+
 <p align="center">
-  <a href="https://github.com/dr8553097-sudo/PinataSpectra"><img src="https://img.shields.io/badge/Version-1.0.0--RELEASE-purple.svg?style=for-the-badge" alt="Version"></a>
+  <strong><em>"Where Physics Meets Fantasy — Next-Gen 3D Boss Encounters with Zero-Tick Compromise."</em></strong>
+</p>
+
+<p align="center">
+  <a href="https://dr8553097-sudo.github.io/PinataSpectra/"><img src="https://img.shields.io/badge/📚_Official_Wiki-Interactive_Docs-00f0ff.svg?style=for-the-badge" alt="Wiki"></a>
+  <a href="https://github.com/dr8553097-sudo/PinataSpectra"><img src="https://img.shields.io/badge/Edition-SOVEREIGN_PRO-purple.svg?style=for-the-badge" alt="Edition"></a>
   <a href="https://papermc.io"><img src="https://img.shields.io/badge/Paper%20%2F%20Purpur-1.20%20--%201.26+-00f0ff.svg?style=for-the-badge" alt="Platform"></a>
   <a href="https://www.java.com"><img src="https://img.shields.io/badge/Java-21%20%2F%2025-orange.svg?style=for-the-badge" alt="Java"></a>
   <a href="https://github.com/dr8553097-sudo/PinataSpectra/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Commercial%20EULA-red.svg?style=for-the-badge" alt="License"></a>
@@ -11,15 +17,45 @@
 
 ---
 
-## 🌟 Overview / Visión General
+## ⚠️ Edition Notice: Sovereign (Premium) vs. Lite Edition
 
-**PinataSpectra** is an enterprise-grade Minecraft plugin engineered for **Paper, Purpur, and Spigot (1.20 - 1.26+)**. It elevates community server events with procedural 3D Display Entity piñatas, reactive 4-phase combat mechanics, intelligent particle Level of Detail (LOD), dynamic ground runic circles, ephemeral combat candies, vote parties, and a 54-slot async GUI leaderboard.
-
-> **Zero Tick Overhead:** All database tracking, leaderboard queries, hologram math, and event sweeps are processed off the main server thread to guarantee a solid **20.0 TPS** even during 80+ player boss fights.
+> [!IMPORTANT]
+> **This repository represents PinataSpectra — Sovereign Edition (Commercial / Premium Suite).**
+> 
+> * **Why does PinataSpectra exist?** Traditional Minecraft piñata plugins rely on outdated invisible `ArmorStand` clusters that cause client FPS stutter, packet floods, and lag during high-player events. PinataSpectra was engineered to bring **triple-A 3D procedural boss mechanics, harmonic rope physics, and particle Level of Detail (LOD)** to Minecraft networks without sacrificing a single tick of server performance.
+> * **Why is there a separate Lite Edition?** We created **PinataSpectra Lite** as a free, lightweight community alternative for small survival servers that only need a basic static piñata. The **Sovereign Edition** contains the complete proprietary enterprise engine built for network monetization, multi-stage boss combat, and events with **80+ concurrent players at solid 20.0 TPS**.
 
 ---
 
-## 🎬 Gameplay & Showcase Clips / Demostraciones en Video
+## ⚖️ Comprehensive Feature Comparison Matrix
+
+| Architectural Feature | 🪅 PinataSpectra Sovereign (This Repo) | 🍃 PinataSpectra Lite (Free) | 📦 Legacy / Generic Piñata Plugins |
+|---|:---:|:---:|:---:|
+| **Target Audience** | Enterprise Networks & Large Communities | Small Vanilla / Survival Servers | Generic Spigot Servers |
+| **Entity Core** | Native `ItemDisplay` & `Interaction` (1.20+) | Native `ItemDisplay` (Basic) | 10-30 Invisible `ArmorStands` (High Packets) |
+| **80+ Players Scalability** | **20.0 TPS Guaranteed** (Particle LOD) | 20.0 TPS (Basic Scale) | Client FPS Drops & Server Stutters |
+| **Suspension Physics** | 3D Catenary Rope & Harmonic Recoil Vector | Static Floating | Static or Basic Leash |
+| **Combat Phases** | **4 Dynamic Phases** (Shields & Minions) | Single Health Bar | Single Health Bar |
+| **Emotion Morphing** | 4 Dynamic Facial State Morphs | Static Texture | None |
+| **Arena Runes** | Animated Ground Runic Perimeter Circle | None | None |
+| **Combat Candies** | Ephemeral Candies + **Auto-Sweeper Purge** | None | Permanent Candies (Dupe/Economy Risk) |
+| **Leaderboard System** | **54-Slot Async GUI** + Multi-Category DB | Chat Text Only | None or Basic Flatfile |
+| **Automation** | **Auto-Scheduler Engine** with Alerts | None | Manual Commands Only |
+| **Vote Goal / BossBar** | Community BossBar + NuVotifier Goal | None | None |
+| **Custom Model Engine / Oraxen** | Native Hook Support | None | None |
+| **Database Storage** | SQLite / MySQL / Redis Pool (HikariCP) | Local Flatfile | YAML Flatfile Only |
+| **Support & Updates** | Priority Commercial Support & Features | Community Support | Often Abandoned |
+
+---
+
+## 🎯 Author's Vision & Purpose / Visión del Proyecto
+
+> *"My goal with **PinataSpectra Sovereign** is to redefine how Minecraft server communities experience seasonal festivals and donation milestones. By blending real-time kinematic physics with phased MMO boss mechanics, servers can host awe-inspiring 80+ player battles that feel as polished as a standalone action game, all while maintaining perfect server performance."*  
+> — **Dafealru (dr8553097-sudo)**
+
+---
+
+## 🎬 Video Showcase / Demostraciones en Video
 
 | Preview | Video File | Description |
 |---|---|---|
@@ -29,36 +65,33 @@
 
 ---
 
-## ⚡ Key Features / Características Principales
+## ⚡ Core Systems Overview
 
 ### 🦄 1. Procedural 3D Display Entity Engine
-- Utilizes native `ItemDisplay` and `Interaction` entities with zero dependency on client mods.
-- Realistic rope suspension physics with harmonic swaying, recoil impulse upon hits, and continuous floating rotation.
-- **Emotion Morphing:** Dynamic face texture changes transitioning across *Calm*, *Nervous*, *Angry (Enraged)*, and *Dying*.
+* Zero client-side mod requirements.
+* Pixel-perfect `Interaction` entity hitboxes with harmonic rope physics and angular recoil velocity upon hits.
+* **Emotion Morphing:** Facial expressions shift dynamically across *Calm*, *Nervous*, *Angry (Enraged)*, and *Dying*.
 
 ### ⚔️ 2. Dynamic 4-Phase Combat State Machine (`PinataPhaseStateMachine`)
-- **Phase 1 (Calm):** Initial damage phase with reactive dialogue quotes.
-- **Phase 2 (Shield / Minions):** Spawns a magical defensive shield absorbing hits until guardian minions are defeated.
-- **Phase 3 (Rage / Frenzy):** Knockback pulses, lightning strikes, and enraged particle auras.
-- **Phase 4 (Final Stand / Chaos Drop):** High-speed floating and epic progressive loot explosion.
+* **Phase 1 (Calm):** Initial damage phase with reactive dialogue quotes.
+* **Phase 2 (Shield / Minions):** Spawns a magical defensive shield absorbing hits until guardian minions are defeated.
+* **Phase 3 (Rage / Frenzy):** Knockback shockwaves, lightning strikes, and enraged particle auras.
+* **Phase 4 (Final Stand / Chaos Drop):** Climax soundtrack and progressive multi-colored loot explosions.
 
 ### 🔮 3. Smart Particle LOD & Runic Ground Circles
-- **Level of Detail (LOD):** Automatically adjusts particle frequency and render distance based on nearby player density to prevent FPS drops on low-end client machines.
-- **Runic Floor Circles:** Animated rotating circular particle runes project directly onto the ground beneath floating piñatas.
+* **Level of Detail (LOD):** Automatically adjusts particle frequency and render distance based on nearby player density to prevent FPS drops on low-end client machines.
+* **Runic Floor Circles:** Animated rotating circular particle runes project directly onto the ground beneath floating piñatas.
 
 ### 🍬 4. Ephemeral Candies & Candy Sweeper Engine
-- Special consumable candies (Buffs, Speed, Regeneration, Strength) that can **only be used while a Piñata event is active**.
-- **Global Sweeper Service:** Automatically purges remaining event candies from player inventories, enderchests, and world drops as soon as the event concludes to protect the server economy.
+* Special consumable candies (Buffs, Speed, Regeneration, Strength) that can **only be used while a Piñata event is active**.
+* **Global Sweeper Service:** Automatically purges remaining event candies from player inventories, enderchests, and world drops as soon as the event concludes to protect the server economy.
 
 ### 🏆 5. 54-Slot Async GUI Leaderboard (`/pinata top`)
-- Live ranking GUI with animated glass borders, persistent SQLite/MySQL tracking for:
-  - 💥 **Top Damage Dealers**
-  - 👑 **Top Piñata MVPs (Last Hit / Slayers)**
-  - 🍬 **Top Candies Consumed**
+* Live ranking GUI with animated glass borders, persistent SQLite/MySQL tracking for **Top Damage Dealers**, **Top Piñata MVPs**, and **Top Candies Consumed**.
 
 ### ⏳ 6. Automated Event Scheduler & Vote Party / Donation Goal
-- Set automated recurring piñata spawns by interval with advance countdown announcements.
-- **Community Vote Goal:** Accumulates server votes (`/pinata vote add`) with a dynamic community BossBar triggering a Piñata Party once the goal is reached.
+* Set automated recurring piñata spawns by interval with advance countdown announcements.
+* **Community Vote Goal:** Accumulates server votes with a dynamic community BossBar triggering a Piñata Party once the goal is reached.
 
 ---
 
@@ -76,46 +109,10 @@
 
 ---
 
-## 🧩 PlaceholderAPI Support
+## 🌐 Official Web Documentation & Wiki
 
-| Placeholder | Description |
-|---|---|
-| `%pinataspectra_active_count%` | Number of currently active Piñatas in all worlds |
-| `%pinataspectra_vote_current%` | Current votes accumulated towards the next Vote Party |
-| `%pinataspectra_vote_required%` | Target votes required to trigger a Vote Party |
-| `%pinataspectra_vote_percent%` | Progress percentage of the Vote Party goal |
-| `%pinataspectra_scheduler_time%` | Formatted countdown until the next scheduled Piñata |
-| `%pinataspectra_top_damage_1_name%` | Player name with highest total damage dealt |
-| `%pinataspectra_top_damage_1_value%`| Total damage points of #1 damage dealer |
-| `%pinataspectra_top_broken_1_name%` | Player name with most Piñatas destroyed (MVP) |
-| `%pinataspectra_top_candies_1_name%`| Player name with most event candies consumed |
-
----
-
-## 🛠️ Installation
-
-1. Download `PinataSpectra-1.0.0-RELEASE.jar`.
-2. Place the JAR file in your server's `/plugins/` folder.
-3. *(Optional)* Install [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) and [DecentHolograms](https://www.spigotmc.org/resources/decentholograms.96927/).
-4. Start or restart your server.
-5. Customize `config.yml`, `pinatas.yml`, and `messages.yml` to your liking.
-
----
-
-## 💻 Developer API
-
-```java
-import net.dafealru.pinataspectra.PinataSpectra;
-import net.dafealru.pinataspectra.pinata.PinataInstance;
-
-// Access active pinata instances
-PinataSpectra plugin = PinataSpectra.getInstance();
-for (PinataInstance pinata : plugin.getPinataManager().getActivePinatas().values()) {
-    double healthPercent = pinata.getHealthPercent();
-    int currentPhase = pinata.getStateMachine().getCurrentPhase();
-    // Custom server integration logic
-}
-```
+Explore the full interactive documentation portal with live search, copyable configurations, and tutorials:
+👉 **[https://dr8553097-sudo.github.io/PinataSpectra/](https://dr8553097-sudo.github.io/PinataSpectra/)**
 
 ---
 
@@ -126,4 +123,3 @@ for (PinataInstance pinata : plugin.getPinataManager().getActivePinatas().values
 - **GitHub:** [https://github.com/dr8553097-sudo](https://github.com/dr8553097-sudo)
 
 Developed with ❤️ for high-performance Minecraft server communities.
-

@@ -1,16 +1,20 @@
-# ⏳ 09. Auto-Scheduler & Vote Party Engine
+# ⏳ 09. Auto-Scheduler & Vote Party Engine (`events.yml`)
 
-PinataSpectra Sovereign includes enterprise automation tooling to run scheduled server events and player-driven vote parties automatically.
+PinataSpectra Sovereign includes enterprise automation tooling to run scheduled server events, player-driven vote parties, and Discord webhooks automatically via the dedicated `events.yml` configuration file.
 
 ---
 
 ## ⏰ 1. Quartz-Style Cron Auto-Scheduler
 
-Configure recurring automated spawns without requiring external scheduler plugins:
+Configure recurring automated spawns in `events.yml` without requiring external scheduler plugins:
 
 ```yaml
-scheduler:
+# ==============================================================================
+#                  PINATASPECTRA SOVEREIGN - EVENTS & AUTOMATION
+# ==============================================================================
+auto-scheduler:
   enabled: true
+  timezone: "UTC"
   events:
     - name: "daily_afternoon_party"
       cron: "0 0 16 * * ?"      # Every day at 4:00 PM

@@ -58,15 +58,14 @@ candies:
   auto_despawn_seconds: 30
   max_concurrent_in_world: 250
   sound_on_pickup: "ENTITY_ITEM_PICKUP"
-
-# Automated Event Scheduler & Vote Party
-vote_party:
-  enabled: true
-  votes_required: 50
-  pinata_to_spawn: "cosmic_unicorn"
-  spawn_location: "world, 0.5, 70.0, 0.5, 0.0, 0.0"
-  broadcast_interval: 10 # Broadcasts every 10 votes
 ```
+
+---
+
+> [!NOTE]
+> **Modular Architecture Notice:**
+> - **Scheduled Events, Vote Parties & Discord Webhooks:** Configured separately in [`events.yml`](09-Auto-Scheduler-and-Vote-Party.md).
+> - **Piñata Profiles & Templates:** Configured in individual files inside the [`pinatas/`](05-Custom-Pinata-Creation-Guide.md) folder.
 
 ---
 

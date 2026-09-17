@@ -1,22 +1,24 @@
-﻿### 🪅 PinataSpectra Wiki
-- 🏠 [Inicio](Home.md)
+﻿### 🪅 PinataSpectra Sovereign
+- 🏠 [Home / Overview](Home.md)
+- ⚖️ [Edition Comparison (Lite vs Pro)](13-Comparison-and-Editions.md)
 
 ---
-### 📚 Módulos
-- 🏛️ [01. Arquitectura](01-Introduccion-y-Arquitectura.md)
-- ⚙️ [02. Instalación](02-Instalacion-y-Requisitos.md)
-- 🦄 [03. Modelos 3D & Físicas](03-Modelos-3D-y-Fisicas.md)
-- ⚔️ [04. Fases & Combate](04-Maquina-de-Fases-Combate.md)
-- 🛠️ [05. Crear Piñata Custom](05-Guia-Como-Crear-una-Pinata.md)
-- 🔮 [06. LOD & Círculo Rúnico](06-LOD-Particulas-y-Optimizacion.md)
-- 🍬 [07. Dulces & Sweeper](07-Dulces-Efimeros-y-Sweeper.md)
-- 🏆 [08. Leaderboard GUI Top](08-Leaderboards-GUI-Top.md)
-- ⏳ [09. Scheduler & Votos](09-Auto-Scheduler-y-Vote-Party.md)
-- 📜 [10. Configuración YAML](10-Configuracion-YAML-Maestra.md)
-- 🧩 [11. Comandos & PAPI](11-Comandos-Permisos-Placeholders.md)
-- 💻 [12. Developer API](12-Developer-API-y-Advertencias.md)
+### 📚 Documentation Modules
+- 🏛️ [01. Architecture & Performance](01-Architecture-and-Performance.md)
+- ⚙️ [02. Installation & Setup](02-Installation-and-Setup.md)
+- 🦄 [03. 3D Display Entities & Physics](03-3D-Display-Entities-and-Physics.md)
+- ⚔️ [04. Combat Phases & Boss Mechanics](04-Combat-Phases-and-Boss-Mechanics.md)
+- 🛠️ [05. Creating Custom Piñatas](05-Creating-Custom-Pinatas.md)
+- 🔮 [06. Particle LOD & Runic Circles](06-Particle-LOD-and-Runic-Circles.md)
+- 🍬 [07. Ephemeral Candies & Sweeper](07-Ephemeral-Candies-and-Sweeper.md)
+- 🏆 [08. Leaderboards GUI & Stats](08-Leaderboards-GUI-and-Stats.md)
+- ⏳ [09. Auto-Scheduler & Vote Party](09-Auto-Scheduler-and-Vote-Party.md)
+- 📜 [10. Master Configuration Reference](10-Master-Configuration-Reference.md)
+- 🧩 [11. Commands & Placeholders](11-Commands-Permissions-and-Placeholders.md)
+- 💻 [12. Developer API & Best Practices](12-Developer-API-and-Events.md)
 
 ---
-### 🔗 Enlaces
-- [🌐 Portafolio](https://dr8553097-sudo.github.io)
-- [📦 Repositorio GitHub](https://github.com/dr8553097-sudo/PinataSpectra)
+### 🔗 External Links
+- [🌐 Developer Portfolio](https://dr8553097-sudo.github.io)
+- [📦 GitHub Repository](https://github.com/dr8553097-sudo/PinataSpectra)
+- [🧡 SpigotMC Profile](https://www.spigotmc.org/members/dafealru.1/)

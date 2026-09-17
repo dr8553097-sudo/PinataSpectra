@@ -1,3 +1,8 @@
+<div align="center" style="padding: 10px 0 16px 0; border-bottom: 1px solid rgba(168,85,247,0.25); margin-bottom: 18px;">
+  <a href="#/"><img src="https://raw.githubusercontent.com/dr8553097-sudo/PinataSpectra/main/assets/banner.png" alt="PinataSpectra Logo" style="max-width: 220px; width: 100%; border-radius: 8px; filter: drop-shadow(0 0 12px rgba(168,85,247,0.45)); display: block; margin: 0 auto;"></a>
+  <div style="margin-top: 10px; display: inline-flex; align-items: center; gap: 6px; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); color: #c084fc; font-size: 0.72rem; font-family: monospace; font-weight: 700; padding: 3px 12px; border-radius: 20px; letter-spacing: 0.6px;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; display: inline-block;"></span> SOVEREIGN EDITION</div>
+</div>
+
 * **🚀 Quick Start**
   * [🏠 Home / Overview](Home.md)
   * [⚖️ Edition Comparison (Lite vs Pro)](13-Comparison-and-Editions.md)

@@ -126,3 +126,4 @@ for (PinataInstance pinata : plugin.getPinataManager().getActivePinatas().values
 - **GitHub:** [https://github.com/dr8553097-sudo](https://github.com/dr8553097-sudo)
 
 Developed with ❤️ for high-performance Minecraft server communities.
+

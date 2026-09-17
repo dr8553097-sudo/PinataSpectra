@@ -1,15 +1,12 @@
 ﻿<p align="center">
-  <h1 align="center">🪅 PinataSpectra — Sovereign Edition</h1>
-  <p align="center">
-    <strong>The Next-Generation 3D Boss & Multi-Tier Piñata Event Engine for Minecraft</strong>
-  </p>
-  <p align="center">
-    <a href="https://github.com/dr8553097-sudo/PinataSpectra"><img src="https://img.shields.io/badge/Version-1.0.0--RELEASE-purple.svg?style=for-the-badge" alt="Version"></a>
-    <a href="https://papermc.io"><img src="https://img.shields.io/badge/Paper%20%2F%20Purpur-1.20%20--%201.26+-00f0ff.svg?style=for-the-badge" alt="Platform"></a>
-    <a href="https://www.java.com"><img src="https://img.shields.io/badge/Java-21%20%2F%2025-orange.svg?style=for-the-badge" alt="Java"></a>
-    <a href="https://github.com/dr8553097-sudo/PinataSpectra/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Commercial%20EULA-red.svg?style=for-the-badge" alt="License"></a>
-    <a href="https://dr8553097-sudo.github.io"><img src="https://img.shields.io/badge/Portfolio-Dafealru-a855f7.svg?style=for-the-badge" alt="Portfolio"></a>
-  </p>
+  <img src="assets/banner.png" alt="PinataSpectra Banner" width="100%" style="max-width: 850px;">
+</p>
+<p align="center">
+  <a href="https://github.com/dr8553097-sudo/PinataSpectra"><img src="https://img.shields.io/badge/Version-1.0.0--RELEASE-purple.svg?style=for-the-badge" alt="Version"></a>
+  <a href="https://papermc.io"><img src="https://img.shields.io/badge/Paper%20%2F%20Purpur-1.20%20--%201.26+-00f0ff.svg?style=for-the-badge" alt="Platform"></a>
+  <a href="https://www.java.com"><img src="https://img.shields.io/badge/Java-21%20%2F%2025-orange.svg?style=for-the-badge" alt="Java"></a>
+  <a href="https://github.com/dr8553097-sudo/PinataSpectra/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Commercial%20EULA-red.svg?style=for-the-badge" alt="License"></a>
+  <a href="https://dr8553097-sudo.github.io"><img src="https://img.shields.io/badge/Portfolio-Dafealru-a855f7.svg?style=for-the-badge" alt="Portfolio"></a>
 </p>
 
 ---
@@ -19,6 +16,16 @@
 **PinataSpectra** is an enterprise-grade Minecraft plugin engineered for **Paper, Purpur, and Spigot (1.20 - 1.26+)**. It elevates community server events with procedural 3D Display Entity piñatas, reactive 4-phase combat mechanics, intelligent particle Level of Detail (LOD), dynamic ground runic circles, ephemeral combat candies, vote parties, and a 54-slot async GUI leaderboard.
 
 > **Zero Tick Overhead:** All database tracking, leaderboard queries, hologram math, and event sweeps are processed off the main server thread to guarantee a solid **20.0 TPS** even during 80+ player boss fights.
+
+---
+
+## 🎬 Gameplay & Showcase Clips / Demostraciones en Video
+
+| Preview | Video File | Description |
+|---|---|---|
+| 🎮 **Gameplay Combat** | [`assets/clip_1_gameplay.mp4`](assets/clip_1_gameplay.mp4) | In-game combat, physics, hitboxes & particle effects |
+| 🛡️ **Shield & Phases** | [`assets/clip_2_features.mp4`](assets/clip_2_features.mp4) | 4-phase transitions, minion spawns, runic circles & candy consumption |
+| 🏆 **Event Finale & GUI** | [`assets/clip_3_showcase.mp4`](assets/clip_3_showcase.mp4) | Grand loot explosion, 54-slot Leaderboard GUI & candy sweep |
 
 ---
 
@@ -119,4 +126,3 @@ for (PinataInstance pinata : plugin.getPinataManager().getActivePinatas().values
 - **GitHub:** [https://github.com/dr8553097-sudo](https://github.com/dr8553097-sudo)
 
 Developed with ❤️ for high-performance Minecraft server communities.
-

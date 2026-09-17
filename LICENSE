@@ -1,21 +1,28 @@
-﻿MIT License
+﻿END USER LICENSE AGREEMENT & PROPRIETARY COMMERCIAL SOFTWARE LICENSE (EULA)
 
-Copyright (c) 2026 Dafealru
+Copyright (c) 2026 Dafealru (dr8553097-sudo). All Rights Reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+IMPORTANT: PLEASE READ THIS LICENSE CAREFULLY BEFORE PURCHASING, DOWNLOADING, OR USING PINATASPECTRA ("THE SOFTWARE"). BY DOWNLOADING, INSTALLING, OR USING THIS SOFTWARE, YOU AGREE TO BE BOUND BY THE TERMS OF THIS AGREEMENT.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. GRANT OF LICENSE
+Subject to the terms of this Agreement and proof of legitimate purchase from authorized distribution platforms (such as SpigotMC, BuiltByBit, Polymart, or direct authorized sales), the Author grants the licensee a non-exclusive, non-transferable, revocable license to install and run the Software solely on servers owned and operated by the licensee or their network.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. RESTRICTIONS & PROHIBITED ACTIONS
+You may NOT under any circumstances:
+- Distribute, redistribute, resell, sub-license, lease, rent, publish, share, or upload the Software (in binary or decompiled format) to any public or private repository, forum, website, file sharing platform, or "leak" site.
+- Decompile, reverse engineer, disassemble, modify bytecode, or attempt to derive the source code of the Software.
+- Remove, alter, or obscure any proprietary notices, author credits, copyright markers, or license keys contained within the Software.
+- Claim ownership or authorship of the Software or any portion thereof.
+
+3. INTELLECTUAL PROPERTY RIGHTS
+The Software, including but not limited to its architecture, visual animations, physics equations, particle algorithms, configuration templates, and compiled binaries, is the exclusive intellectual property of Dafealru (dr8553097-sudo) and is protected by international copyright laws and treaties.
+
+4. TERMINATION
+This license is effective until terminated. Your rights under this license will terminate automatically without notice if you fail to comply with any term(s) of this Agreement, or if a chargeback/fraudulent transaction is initiated. Upon termination, you must immediately destroy all copies of the Software in your possession.
+
+5. DISCLAIMER OF WARRANTIES
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, LOSS OF DATA, SERVER DOWNTIME, OR OTHER LIABILITY ARISING FROM THE USE OR INABILITY TO USE THE SOFTWARE.
+
+For commercial inquiries, custom licensing, or support:
+Portfolio: https://dr8553097-sudo.github.io
+GitHub: https://github.com/dr8553097-sudo

@@ -7,7 +7,7 @@
     <a href="https://github.com/dr8553097-sudo/PinataSpectra"><img src="https://img.shields.io/badge/Version-1.0.0--RELEASE-purple.svg?style=for-the-badge" alt="Version"></a>
     <a href="https://papermc.io"><img src="https://img.shields.io/badge/Paper%20%2F%20Purpur-1.20%20--%201.26+-00f0ff.svg?style=for-the-badge" alt="Platform"></a>
     <a href="https://www.java.com"><img src="https://img.shields.io/badge/Java-21%20%2F%2025-orange.svg?style=for-the-badge" alt="Java"></a>
-    <a href="https://github.com/dr8553097-sudo/PinataSpectra/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License"></a>
+    <a href="https://github.com/dr8553097-sudo/PinataSpectra/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Commercial%20EULA-red.svg?style=for-the-badge" alt="License"></a>
     <a href="https://dr8553097-sudo.github.io"><img src="https://img.shields.io/badge/Portfolio-Dafealru-a855f7.svg?style=for-the-badge" alt="Portfolio"></a>
   </p>
 </p>
@@ -119,3 +119,4 @@ for (PinataInstance pinata : plugin.getPinataManager().getActivePinatas().values
 - **GitHub:** [https://github.com/dr8553097-sudo](https://github.com/dr8553097-sudo)
 
 Developed with ❤️ for high-performance Minecraft server communities.
+

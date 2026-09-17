@@ -1,0 +1,48 @@
+﻿name: "🐛 Bug Report / Reporte de Error"
+description: "Report an issue or bug encountered in PinataSpectra"
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue! Please ensure you are running the latest build on a supported Paper/Purpur/Spigot server (1.20 - 1.26+).
+  - type: input
+    id: server-version
+    attributes:
+      label: "Server Software & Version"
+      description: "Output of /version command (e.g., Paper 1.21.1 build #123)"
+      placeholder: "Paper 1.21.1-R0.1-SNAPSHOT"
+    validations:
+      required: true
+  - type: input
+    id: plugin-version
+    attributes:
+      label: "PinataSpectra Version"
+      description: "Output of /pinata version"
+      placeholder: "v1.0.0-RELEASE"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: "Bug Description"
+      description: "A clear and concise description of what the bug is."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Steps to Reproduce"
+      description: "Step-by-step instructions to reproduce the issue."
+      placeholder: |
+        1. Run '/pinata spawn default tier_1'
+        2. Hit the piñata into phase 2
+        3. Observe the behavior...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Server Logs / Stacktrace"
+      description: "Paste relevant latest.log errors or stacktraces here (inside code blocks)."
+      render: shell

@@ -1,0 +1,22 @@
+﻿name: "💡 Feature Request / Sugerencia"
+description: "Suggest a new idea or enhancement for PinataSpectra"
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We love community feedback! Share your ideas for new 3D piñata shapes, combat mechanics, sound hooks, or integrations.
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: "Feature Description"
+      description: "What would you like to see added?"
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: "Server Use Case"
+      description: "How would this feature improve events on your Minecraft server?"
+    validations:
+      required: true
